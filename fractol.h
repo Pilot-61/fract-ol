@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/03/24 03:11:33 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/14 00:18:15 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,58 @@
 # include "mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <string.h>
+# include <stdio.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 600
+# define HEIGHT 600
 # define MAX_ITER 100
-# define ZOOM 1.1
-# define MOVE 0.1
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define CELESTIAL_BLUE 0x4997D0
+# define KEY_ESC 53
+# define MOUSE_SCROLL_UP 4
+# define MOUSE_SCROLL_DOWN 5
 
 typedef struct s_mlx
 {
-	void	*mlx; //mlx_init()
-	void	*win; //mlx_new_window()
-	void	*img; //mlx_new_image()
-	char	*addr; //mlx_get_data_addr()
-	int		bpp; //bits per pixel
-	int		line_len; //line length
-	int		endian; //endian
-}			t_mlx; //struct for mlx
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_mlx;
 
 typedef struct s_fractol
 {
-	t_mlx	mlx; //struct for mlx
-	char	*name; //fractol name
-	int		fractol; //fractol type
-	double	x; //x coordinate
-	double	y; //y coordinate
-	double	zoom; //zoom
-	int		max_iter; //max iteration
-}			t_fractol; //struct for fractol
+	t_mlx	mlx;
+	char	*name;
+	int		fractol;
+	double	x;
+	double	y;
+	double	zoom;
+	int		max_iter;
+	double	escape_value;
+
+}			t_fractol;
+
+typedef struct s_complex
+{
+	double	r;
+	double	i;
+}			t_complex;
 
 void		init_mlx(t_fractol *fractol);
 void		draw_fractol(t_fractol *fractol);
-int			mandelbrot(t_fractol *fractol, double x, double y);
-int			julia(t_fractol *fractol, double x, double y);
 void		ft_putstr_fd(char *s, int fd);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_atoi(const char *str);
-void		ft_bzero(void *s, size_t n);
-void		*ft_calloc(size_t count, size_t size);
+t_complex	complex_sum(t_complex a, t_complex b);
+t_complex	complex_square(t_complex a);
+void		error(char *str);
+int			key_press(int keycode, t_fractol *fractol);
+int			mouse_press(int keycode, int x, int y, t_fractol *fractol);
+double		ft_atof(char *str);
 
 #endif

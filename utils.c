@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/03/13 16:45:43 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/13 23:54:10 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,51 +36,56 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (ss1[i] - ss2[i]);
 }
 
-int	ft_atoi(const char *str)
+t_complex	complex_sum(t_complex a, t_complex b)
 {
+	t_complex	c;
+
+	c.r = a.r + b.r;
+	c.i = a.i + b.i;
+	return (c);
+}
+
+t_complex	complex_square(t_complex a)
+{
+	t_complex	c;
+
+	c.r = (a.r * a.r) - (a.i * a.i);
+	c.i = 2 * a.r * a.i;
+	return (c);
+}
+
+double	ft_atof(char *c)
+{
+	double	n;
+	double	d;
 	int		i;
-	int		neg;
-	int		res;
+	int		sign;
+	double	decimalplace;
 
+	n = 0.0;
+	d = 0.0;
 	i = 0;
-	neg = 1;
-	res = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-')
-		neg = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	sign = 1;
+	if (c[i] == '-')
 	{
-		res = (res * 10) + (str[i] - '0');
+		sign = -1;
 		i++;
 	}
-	return (res * neg);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*ss;
-	size_t			i;
-
-	ss = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	while (c[i] >= '0' && c[i] <= '9')
 	{
-		ss[i] = 0;
+		n = n * 10 + (c[i] - '0');
 		i++;
 	}
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	if (c[i] == '.')
+	{
+		i++;
+		decimalplace = 10;
+		while (c[i] >= '0' && c[i] <= '9')
+		{
+			d = d + (c[i] - '0') / decimalplace;
+			decimalplace *= 10;
+			i++;
+		}
+	}
+	return (sign * (n + d));
 }
