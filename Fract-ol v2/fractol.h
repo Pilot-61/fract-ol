@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/03/27 07:38:19 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/13 02:42:45 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,31 @@
 
 # define WIDTH 800
 # define HEIGHT 800
-# define MAX_ITER 42
+# define MAX_ITER 100
 # define ZOOM 1.1
 # define MOVE 0.1
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
-# define GREEN 0x00FF00
-# define RED 0xFF0000
-# define BLUE 0x0000FF
-# define YELLOW 0xFFFF00
-# define PURPLE 0xFF00FF
-# define CYAN 0x00FFFF
-# define LAVA_RED 0xFF3300
-# define LAVA_ORANGE 0xFF6600
-# define LAVA_YELLOW 0xFF9900
-# define LAVA_GREEN 0xCCFF00
-# define LAVA_BLUE 0x66FF00
-# define LAVA_PURPLE 0x33FF00
-# define LAVA_CYAN 0x00FF33
-# define LAVA_WHITE 0x00FF66
-# define LAVA_BLACK 0x00FF99
-# define LAVA_GRAY 0x00FFCC
+# define CELESTIAL_BLUE 0x4997D0
+# define SUNSET_ORANGE 0xFF7F50
+# define AMETHYST_PURPLE 0x9966CC
+# define EMERALD_GREEN 0x50C878
+# define CORAL_PINK 0xFF6F61
+# define GOLDENROD_YELLOW 0xDAA520
+# define LAVENDER_PURPLE 0xE6E6FA
+# define TURQUOISE_BLUE 0x40E0D0
+# define RUBY_RED 0xE0115F
+# define SAPPHIRE_BLUE 0x0F52BA
+#define KEY_ESC 53 // Example: ASCII value for ESC key
+#define KEY_DOWN_ARROW 125 // Example: ASCII value for down arrow key
+#define KEY_UP_ARROW 126 // Example: ASCII value for up arrow key
+#define KEY_LEFT_ARROW 123 // Example: ASCII value for left arrow key
+#define KEY_RIGHT_ARROW 124 // Example: ASCII value for right arrow key
+#define KEY_PLUS 69 // Example: ASCII value for + key
+#define KEY_MINUS 78 // Example: ASCII value for - key
+
+
+
 
 typedef struct s_mlx
 {
@@ -78,11 +82,9 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
-double		scale(double value, double in_min, double in_max, double out_min, double out_max);
-double		map(int value, int in_min, int in_max, int out_min, int out_max);
 t_complex	complex_sum(t_complex a, t_complex b);
 t_complex	complex_square(t_complex a);
 void		error(char *str);
-
+int key_press(int keycode, t_fractol *fractol);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/03/27 08:43:39 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/13 02:42:25 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,6 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(ptr, count * size);
 	return (ptr);
-}
-
-double	scale(double value, double in_min, double in_max, double out_min, double out_max)
-{
-	return ((value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min); //scale the value from one range to another
-}
-
-double	map(int value, int in_min, int in_max, int out_min, int out_max)
-{
-	return (scale(value, in_min, in_max, out_min, out_max)); //map the value from one range to another
 }
 
 t_complex	complex_sum(t_complex a, t_complex b)
