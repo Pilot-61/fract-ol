@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 03:15:30 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 00:10:06 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/14 05:57:24 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	handle_pixel(t_fractol *fractol, int x, int y)
 	t_complex	c;
 	t_complex	z;
 	int			i;
-	int			color;
 
 	if (fractol->fractol == 1)
 	{
@@ -48,8 +47,8 @@ void	handle_pixel(t_fractol *fractol, int x, int y)
 		z = complex_sum(complex_square(z), c);
 		if ((z.r * z.r) + (z.i * z.i) > fractol->escape_value)
 		{
-			color = (double)i / fractol->max_iter * CELESTIAL_BLUE;
-			my_mlx_pixel_put(&fractol->mlx, x, y, color);
+			color_divergence(fractol, i);
+			my_mlx_pixel_put(&fractol->mlx, x, y, fractol->color);
 			return ;
 		}
 		i++;

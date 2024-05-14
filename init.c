@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 02:46:12 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/13 23:55:31 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/14 04:51:21 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	data_init(t_fractol *fractol)
 {
 	fractol->max_iter = 100;
 	fractol->escape_value = 4.0;
-	fractol->zoom = 1.0;
+	fractol->zoom = 1.1;
 }
 
 void	init_mlx(t_fractol *fractol)

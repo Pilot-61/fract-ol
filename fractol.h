@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 00:18:15 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/14 06:02:49 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@
 # define KEY_ESC 53
 # define MOUSE_SCROLL_UP 4
 # define MOUSE_SCROLL_DOWN 5
+# define DARK_BROWN   0x421E0F
+# define DARK_BLUE    0x09012F
+# define BLUE         0x00076E
+# define LIGHT_BLUE   0x0C2C8A
+# define SKY_BLUE     0x1852B1
+# define LIGHT_CYAN   0x86B5E5
+# define LIGHT_YELLOW 0xF8C95F
+# define ORANGE       0xFFAA00
+# define BROWN        0x995700
+# define PALE_CYAN    0x8CCEEA
 
 typedef struct s_mlx
 {
@@ -51,6 +61,7 @@ typedef struct s_fractol
 	double	zoom;
 	int		max_iter;
 	double	escape_value;
+	int		color;
 
 }			t_fractol;
 
@@ -69,6 +80,6 @@ t_complex	complex_square(t_complex a);
 void		error(char *str);
 int			key_press(int keycode, t_fractol *fractol);
 int			mouse_press(int keycode, int x, int y, t_fractol *fractol);
-double		ft_atof(char *str);
-
+double		mes_atof(char *c);
+void		color_divergence(t_fractol *fractol, int i);
 #endif
