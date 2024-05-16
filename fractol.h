@@ -6,19 +6,16 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 06:02:49 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/16 01:16:50 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <math.h>
 # include "mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
-# include <stdio.h>
 
 # define WIDTH 600
 # define HEIGHT 600
@@ -62,7 +59,6 @@ typedef struct s_fractol
 	int		max_iter;
 	double	escape_value;
 	int		color;
-
 }			t_fractol;
 
 typedef struct s_complex
@@ -70,6 +66,12 @@ typedef struct s_complex
 	double	r;
 	double	i;
 }			t_complex;
+
+typedef struct s_cordinate
+{
+	int	x;
+	int	y;
+}			t_cordinate;
 
 void		init_mlx(t_fractol *fractol);
 void		draw_fractol(t_fractol *fractol);
@@ -81,5 +83,5 @@ void		error(char *str);
 int			key_press(int keycode, t_fractol *fractol);
 int			mouse_press(int keycode, int x, int y, t_fractol *fractol);
 double		mes_atof(char *c);
-void		color_divergence(t_fractol *fractol, int i);
+void		color_infinity(t_fractol *fractol, int i);
 #endif

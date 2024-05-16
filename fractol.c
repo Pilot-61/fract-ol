@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:46:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 04:59:28 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/16 01:13:49 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void	mes_parse(int ac, char **av, t_fractol *fractol)
 		error("invalid fractol name\n");
 }
 
+int close_window(t_fractol *fractol)
+{
+	mlx_destroy_image(fractol->mlx.mlx, fractol->mlx.img);
+	mlx_destroy_window(fractol->mlx.mlx, fractol->mlx.win);
+	exit(0);
+	return 0;
+}
+
 int	main(int ac, char **av)
 {
 	t_fractol	fractol;
@@ -49,6 +57,7 @@ int	main(int ac, char **av)
 		fractol.mlx.img, 0, 0);
 	mlx_key_hook(fractol.mlx.win, key_press, &fractol);
 	mlx_mouse_hook(fractol.mlx.win, mouse_press, &fractol);
+	mlx_hook(fractol.mlx.win, 17, 0, close_window, &fractol);
 	mlx_loop(fractol.mlx.mlx);
 	return (0);
 }

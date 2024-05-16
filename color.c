@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 05:55:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 06:02:43 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/16 01:15:17 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	determine_color(int color_index)
 	return (color);
 }
 
-void	color_divergence(t_fractol *fractol, int i)
+void	color_infinity(t_fractol *fractol, int i)
 {
 	int	color_index;
 	int	color;
