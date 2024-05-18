@@ -6,11 +6,34 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 04:58:07 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/14 04:58:36 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/18 16:43:01 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static int	is_digit(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+static int	checker(char *c)
+{
+	int	i;
+
+	i = 0;
+	if (c[i] == '-' || c[i] == '+')
+		i++;
+	while (c[i] && is_digit(c[i]))
+		i++;
+	if (c[i] == '.')
+		i++;
+	while (c[i] && is_digit(c[i]))
+		i++;
+	if (c[i] != '\0')
+		return (1);
+	return (0);
+}
 
 static double	parse_integer(char *c, int *index, int *sign)
 {
@@ -24,7 +47,7 @@ static double	parse_integer(char *c, int *index, int *sign)
 		*sign = -1;
 		i++;
 	}
-	while (c[i] >= '0' && c[i] <= '9')
+	while (is_digit(c[i]))
 	{
 		n = n * 10 + (c[i] - '0');
 		i++;
@@ -45,7 +68,7 @@ static double	parse_fraction(char *c, int *index)
 	if (c[i] == '.')
 	{
 		i++;
-		while (c[i] >= '0' && c[i] <= '9')
+		while (is_digit(c[i]))
 		{
 			d = d + (c[i] - '0') / decimalplace;
 			decimalplace *= 10;
@@ -67,6 +90,8 @@ double	mes_atof(char *c)
 	d = 0.0;
 	i = 0;
 	sign = 1;
+	if (checker(c))
+		error("Error\nInvalid number\n");
 	n = parse_integer(c, &i, &sign);
 	d = parse_fraction(c, &i);
 	return (sign * (n + d));
