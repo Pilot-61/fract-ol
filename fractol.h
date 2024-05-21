@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:54:21 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/17 15:34:03 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:39:26 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 600
-# define HEIGHT 600
-# define MAX_ITER 100
+# define WIDTH 800
+# define HEIGHT 800
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 # define CELESTIAL_BLUE 0x4997D0

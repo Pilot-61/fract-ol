@@ -1,0 +1,13 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/mes-salh/Desktop/fract-ol'
+cc -Wall -Wextra -Werror -c fractol.c -o fractol.o
+ 
+cc -Wall -Wextra -Werror -c init.c -o init.o
+cc -Wall -Wextra -Werror -c render.c -o render.o
+cc -Wall -Wextra -Werror -c events.c -o events.o
+cc -Wall -Wextra -Werror -c utils.c -o utils.o
+cc -Wall -Wextra -Werror -c mes_atof.c -o mes_atof.o
+cc -Wall -Wextra -Werror -c color.c -o color.o
+cc -Wall -Wextra -Werror -o fractol fractol.o init.o render.o events.o utils.o mes_atof.o color.o  -lmlx -framework OpenGL -framework AppKit
+make: Leaving directory `/Users/mes-salh/Desktop/fract-ol'
+ 
