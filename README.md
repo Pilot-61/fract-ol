@@ -1,4 +1,5 @@
 # Fract'ol - Fractal Rendering Program
+![Screenshot](https://github.com/mes-salh/fract-ol/raw/main/Screen%20Shot%202024-05-22%20at%206.38.32%20PM.png)
 
 ## Overview
 Fract'ol is a fractal rendering program that displays Julia and Mandelbrot sets. The program supports infinite zoom, various color schemes, and smooth window management using the MiniLibX library.
