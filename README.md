@@ -36,13 +36,13 @@ Run the program with the desired fractal type:
 ## Examples
 
 ### Display the Mandelbrot set:
-    ```
+
     ./fractol mandelbrot
-    ```
+
 ### Display a Julia set with custom parameters:
-    ```
+    
     ./fractol julia <parameter1> <parameter2>
-    ```
+    
 ## Command Line Parameters
 mandelbrot: Display the Mandelbrot set.
 julia: Display the Julia set. Additional parameters can be passed to customize the Julia set. If no parameter or an invalid parameter is provided, the program will list available parameters and exit.
