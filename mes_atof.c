@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 04:58:07 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/18 16:43:01 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:10:42 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ double	mes_atof(char *c)
 	d = 0.0;
 	i = 0;
 	sign = 1;
-	if (checker(c))
+	if (checker(c) || c[0] == '\0')
 		error("Error\nInvalid number\n");
 	n = parse_integer(c, &i, &sign);
 	d = parse_fraction(c, &i);

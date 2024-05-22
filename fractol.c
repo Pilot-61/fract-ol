@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:46:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/17 15:33:57 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:11:08 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	mes_parse(int ac, char **av, t_fractol *fractol)
 	fractol->name = av[1];
 	if (ac >= 2 && ac <= 4)
 	{
-		if (ft_strncmp(fractol->name, "mandelbrot", 10) != 0
-			&& ft_strncmp(fractol->name, "julia", 5) != 0)
-			error("invalid fractol name\n");
-		if (ft_strncmp(fractol->name, "mandelbrot", 10) == 0)
+		if (ft_strncmp(fractol->name, "mandelbrot", 11) != 0
+			&& ft_strncmp(fractol->name, "julia", 6) != 0)
+			error("Invalid usage:\n./fractol mandelbrot\n./fractold julia x y\n");
+		if (ft_strncmp(fractol->name, "mandelbrot", 11) == 0)
 		{
 			if (ac != 2)
 				error("invalid number of arguments ./fractol mnadelbrot\n");
@@ -28,7 +28,7 @@ void	mes_parse(int ac, char **av, t_fractol *fractol)
 			fractol->x = 0.0;
 			fractol->y = 0.0;
 		}
-		else if (ft_strncmp(fractol->name, "julia", 5) == 0)
+		else if (ft_strncmp(fractol->name, "julia", 6) == 0)
 		{
 			if (ac != 4)
 				error("invalid number of arguments ./fractol julia cx cy\n");
@@ -38,7 +38,7 @@ void	mes_parse(int ac, char **av, t_fractol *fractol)
 		}
 	}
 	else
-		error("invalid fractol name\n");
+		error("Invalid usage:\n./fractol mandelbrot\n./fractold julia x y\n");
 }
 
 int	close_window(t_fractol *fractol)
