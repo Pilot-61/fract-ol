@@ -36,11 +36,11 @@ Run the program with the desired fractal type:
 ## Examples
 
 ### Display the Mandelbrot set:
-    ```sh
+    ```
     ./fractol mandelbrot
     ```
 ### Display a Julia set with custom parameters:
-    ```sh
+    ```
     ./fractol julia <parameter1> <parameter2>
     ```
 ## Command Line Parameters
