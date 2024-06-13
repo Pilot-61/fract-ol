@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 04:58:07 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/22 15:10:42 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:59:27 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	checker(char *c)
 	i = 0;
 	if (c[i] == '-' || c[i] == '+')
 		i++;
+	if (!c[i])
+		return (1);
 	while (c[i] && is_digit(c[i]))
 		i++;
 	if (c[i] == '.')

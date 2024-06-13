@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:46:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/05/22 15:11:08 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/06/13 22:34:56 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mes_parse(int ac, char **av, t_fractol *fractol)
 	{
 		if (ft_strncmp(fractol->name, "mandelbrot", 11) != 0
 			&& ft_strncmp(fractol->name, "julia", 6) != 0)
-			error("Invalid usage:\n./fractol mandelbrot\n./fractold julia x y\n");
+			error("Invalid:\n./fractol mandelbrot\n./fractold julia x y\n");
 		if (ft_strncmp(fractol->name, "mandelbrot", 11) == 0)
 		{
 			if (ac != 2)
