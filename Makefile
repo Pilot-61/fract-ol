@@ -1,6 +1,6 @@
 NAME = fractol
 
-SRC = fractol.c init.c render.c events.c utils.c mes_atof.c color.c
+SRC = fractol.c init.c render.c events.c utils.c mes_atof.c color.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -10,13 +10,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
+HEADER = fractol.h
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)  $(MLX)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: mes-salh <mes-salh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:46:14 by mes-salh          #+#    #+#             */
-/*   Updated: 2024/06/13 22:34:56 by mes-salh         ###   ########.fr       */
+/*   Updated: 2024/07/04 21:21:13 by mes-salh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
+	if ((WIDTH <= 0 || WIDTH > 2560)
+		|| (HEIGHT <= 0 || HEIGHT > 1440))
+		error("Invalid HEIGHT OR WIDTH\n");
 	mes_parse(ac, av, &fractol);
 	init_mlx(&fractol);
 	draw_fractol(&fractol);
